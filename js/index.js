@@ -3,9 +3,24 @@ $(document).ready(function() {
   audio.setup();
   audio.setupSong();
   freqAnalysis.setup();
-  freqAnalysis.updateWaveform();
-  visual.setup();
-  visual.drawWaveform();
+  waveform.setup();
+  bargraph.setup();
+
+  // CALL CHOSEN GET DATA FUNCTION ////
+  freqAnalysis.getByteFreqData();
+  // freqAnalysis.getFloatFreqData();
+  freqAnalysis.getByteWaveformData();
+  // freqAnalysis.getFloatWaveformData();
+
+  // CALL CORRESONDING UPDATE DATA FUNCTION
+  freqAnalysis.updateByteWaveform();
+  // freqAnalysis.updateFloatWaveform();
+  freqAnalysis.updateFreqBarGraph();
+
+  // CALL CORRESPONDING VISUAL
+  waveform.drawByteWaveform();
+  // visual.drawFloatWaveform();
+  bargraph.drawByteBargraph();
 
   // USER CONTROLS FOR PLAYING AUDIO /////////////////////
   $('#play-pause').on('click', function() {
