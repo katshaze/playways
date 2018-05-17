@@ -12,15 +12,15 @@ body {
 }
 
 .buttons {
-  line-height: 20vh;
+  line-height: 10vh;
   margin: 0 auto;
   text-align: center;
 }
 
 a {
   text-align: center;
-  color: rgb(255,240,240);
-  border: 2px solid rgb(255,240,240);
+  color: rgb(255,200,200);
+  border: 2px solid rgb(255,200,200);
   padding: 10px;
   cursor: pointer;
   margin: 10px;
@@ -29,12 +29,8 @@ a {
   margin: 0 auto;
 }
 
-#waveform {
+canvas {
   margin: 0 auto;
   display: block;
-}
-
-#bargraph {
-  margin: 0 auto;
-  display: block;
+  margin-bottom: 20px;
 }

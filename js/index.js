@@ -6,6 +6,7 @@ $(document).ready(function() {
   bargraphAnalysis.setup();
   waveform.setup();
   bargraph.setup();
+  deepsounds.setup();
 
   // CALL CHOSEN GET DATA FUNCTION ////
   waveformAnalysis.getByteWaveformData();
@@ -18,6 +19,7 @@ $(document).ready(function() {
   // CALL CORRESPONDING VISUAL
   waveform.drawByteWaveform();
   bargraph.drawByteBargraph();
+  deepsounds.draw();
 
   // USER CONTROLS FOR PLAYING AUDIO /////////////////////
   $('#play-pause').on('click', function() {

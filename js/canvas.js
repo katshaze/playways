@@ -55,7 +55,7 @@ const bargraph = {
     let x = 0;
 
     for(let i = 0; i < dataArray.length; i++) {
-      barHeight = dataArray[i]/2;
+      barHeight = dataArray[i];
 
       this.ctx.fillStyle = `rgb(${barHeight+100},50,50)`;
       this.ctx.fillRect(x,this.canvas.height-barHeight/2,barWidth,barHeight);
@@ -64,3 +64,25 @@ const bargraph = {
     }
   }
 }; //end of bargraph object
+
+const deepsounds = {
+  canvas: null,
+  ctx: null,
+  width: 255,
+  height: 255,
+  setup: function() {
+    this.canvas = document.getElementById('deepsounds');
+    this.ctx = this.canvas.getContext('2d');
+    this.canvas.width = this.width;
+    this.canvas.height = this.height;
+  },
+  draw: function() {
+    requestAnimationFrame(this.draw.bind(this));
+    let dataArray = bargraphAnalysis.byteFreqDataArray;
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    let tileSize = (dataArray[0] + dataArray[1] + dataArray[2] + dataArray[3]) / 4;
+    this.ctx.beginPath();
+    this.ctx.fillStyle = `rgb(${dataArray[0]}, 50, 50)`;
+    this.ctx.fillRect(this.canvas.width/2 - tileSize/2, this.canvas.height/2 - tileSize/2, tileSize, tileSize);
+  }
+}

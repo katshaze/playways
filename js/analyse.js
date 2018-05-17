@@ -22,7 +22,7 @@ const waveformAnalysis = {
 
 const bargraphAnalysis = {
   analyser: null,
-  fftSize: 256,
+  fftSize: 2048,
   bufferLength: 0,
   byteFreqDataArray: [],
   setup: function() {
