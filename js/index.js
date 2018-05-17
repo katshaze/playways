@@ -2,24 +2,21 @@
 $(document).ready(function() {
   audio.setup();
   audio.setupSong();
-  freqAnalysis.setup();
+  waveformAnalysis.setup();
+  bargraphAnalysis.setup();
   waveform.setup();
   bargraph.setup();
 
   // CALL CHOSEN GET DATA FUNCTION ////
-  freqAnalysis.getByteFreqData();
-  // freqAnalysis.getFloatFreqData();
-  freqAnalysis.getByteWaveformData();
-  // freqAnalysis.getFloatWaveformData();
+  waveformAnalysis.getByteWaveformData();
+  bargraphAnalysis.getByteFreqData();
 
   // CALL CORRESONDING UPDATE DATA FUNCTION
-  freqAnalysis.updateByteWaveform();
-  // freqAnalysis.updateFloatWaveform();
-  freqAnalysis.updateFreqBarGraph();
+  waveformAnalysis.updateByteWaveform();
+  bargraphAnalysis.updateFreqBarGraph();
 
   // CALL CORRESPONDING VISUAL
   waveform.drawByteWaveform();
-  // visual.drawFloatWaveform();
   bargraph.drawByteBargraph();
 
   // USER CONTROLS FOR PLAYING AUDIO /////////////////////

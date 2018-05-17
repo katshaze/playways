@@ -1,4 +1,4 @@
-// RENDER VISUALISATION ON CANVAS ///////////////////////
+// RENDER VISUALISATIONS ON CANVAS ///////////////////////
 const waveform = {
   canvas: null,
   ctx: null,
@@ -6,38 +6,13 @@ const waveform = {
     this.canvas = document.getElementById('waveform');
     this.ctx = this.canvas.getContext('2d');
   },
-  drawFloatWaveform: function() {
-    requestAnimationFrame(this.drawFloatWaveform.bind(this)); //repeat as quickly as possible
-    // this.canvas.width = freqAnalysis.dataArray.length;
-    this.canvas.width = freqAnalysis.bufferLength;
-    this.canvas.height = 200;
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    this.ctx.beginPath();
-
-    let dataArray = freqAnalysis.floatDataArray;
-
-    for (let i = 0; i < dataArray.length; i++) {
-      const x = i; // start at left
-      const y = ( 0.5 + (dataArray[i] / 2) ) * this.canvas.height;
-      if(i == 0) {
-          this.ctx.moveTo(x, y); //start here
-      } else {
-          this.ctx.lineTo(x, y); //move to here
-      }
-    }
-    this.ctx.strokeStyle = '#5661FA';
-    this.ctx.lineWidth = 2;
-    this.ctx.stroke();
-  },
   drawByteWaveform: function() {
     requestAnimationFrame(this.drawByteWaveform.bind(this)); //repeat as quickly as possible
-    let dataArray = freqAnalysis.byteWaveformDataArray;
+    let dataArray = waveformAnalysis.byteWaveformDataArray;
 
     let sliceWidth = this.canvas.width * 1.0 / dataArray.length;
     let x = 0;
-
-    // this.canvas.width = freqAnalysis.dataArray.length;
-    this.canvas.width = freqAnalysis.bufferLength;
+    this.canvas.width = waveformAnalysis.bufferLength;
     this.canvas.height = 200;
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.ctx.beginPath();
@@ -61,7 +36,7 @@ const waveform = {
     this.ctx.lineWidth = 2;
     this.ctx.stroke();
   }
-}
+}; //end of waveform object
 
 const bargraph = {
   canvas: null,
@@ -72,10 +47,10 @@ const bargraph = {
   },
   drawByteBargraph: function() {
     requestAnimationFrame(this.drawByteBargraph.bind(this));
-    let dataArray = freqAnalysis.byteFreqDataArray;
+    let dataArray = bargraphAnalysis.byteFreqDataArray;
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.canvas.width = window.innerWidth;
-    let barWidth = (this.canvas.width / freqAnalysis.bufferLength) * 2.5;
+    let barWidth = (this.canvas.width / bargraphAnalysis.bufferLength) * 2.5;
     let barHeight;
     let x = 0;
 
@@ -88,4 +63,4 @@ const bargraph = {
       x += barWidth + 1;
     }
   }
-}
+}; //end of bargraph object
