@@ -2,7 +2,7 @@ const audio = {
   audioContext: null,
   masterGain: null,
   song: null,
-  source: '../audio/el-pico.mp3',
+  source: './audio/el-pico.mp3',
   songSource: null,
   setup: function() {
     this.audioContext = new (window.AudioContext || window.webkitAudioContext)();

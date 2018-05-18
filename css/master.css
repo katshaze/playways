@@ -25,12 +25,15 @@ a {
   cursor: pointer;
   margin: 10px;
 }
-.canvasHolder {
-  margin: 0 auto;
-}
 
-canvas {
+#waveform, #bargraph, #deepsounds {
   margin: 0 auto;
   display: block;
   margin-bottom: 20px;
+}
+
+#diagonals {
+  position: absolute;
+  top: 10vh;
+  left: 0;
 }

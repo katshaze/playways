@@ -7,6 +7,7 @@ $(document).ready(function() {
   waveform.setup();
   bargraph.setup();
   deepsounds.setup();
+  // diagonals.setup();
 
   // CALL CHOSEN GET DATA FUNCTION ////
   waveformAnalysis.getByteWaveformData();
@@ -20,6 +21,8 @@ $(document).ready(function() {
   waveform.drawByteWaveform();
   bargraph.drawByteBargraph();
   deepsounds.draw();
+  // diagonals.drawLines();
+  // diagonals.fill();
 
   // USER CONTROLS FOR PLAYING AUDIO /////////////////////
   $('#play-pause').on('click', function() {
