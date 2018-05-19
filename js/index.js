@@ -44,6 +44,20 @@ function setup() {
   toggleInput(1); // start with elliot smith
   // toggleInput(0); // start with mic
 
+  // USER CONTROLS FOR CLEARING CANVAS //
+  $('#refresh').on('click', function() {
+    clear();
+    circles = [];
+    mainMax = 200;
+    if (currentAccent === 1) {
+      currentAccent = 2;
+    } else if (currentAccent === 2) {
+      currentAccent = 3;
+    } else {
+      currentAccent = 1;
+    }
+  });
+
   // USER CONTROLS FOR MODE //
   $('#mic').on('click', function() {
     toggleInput(0);
@@ -60,7 +74,6 @@ function setup() {
     let text = $('#play-pause').text();
     if (text === 'Play') {
       currentSource.play();
-
       $('#play-pause').text('Pause');
     } else {
       currentSource.pause();
@@ -68,8 +81,7 @@ function setup() {
     }
   });
   $('#stop').on('click', function() {
-    currentSource.pause();
-    currentSource.currentTime = 0;
+    currentSource.stop();
     $('#play-pause').text('Play');
   });
 };

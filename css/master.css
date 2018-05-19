@@ -8,37 +8,39 @@ body {
   margin: 0 auto;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.songControls, .modeControls {
+.songControls, .modeControls, .refresh {
   text-align: center;
   display: block;
+  margin: 8px;
 }
 .songControls {
   width: 140px;
-  margin: 8px;
+  /* margin: 8px; */
 }
 
 .modeControls div {
-  margin: 8px;
-  padding: 5px;
+  margin-bottom: 8px;
 }
 
-.modeControls div {
+.modeControls div, .refresh div {
   border: 2px solid rgb(255,200,200);
   width: 130px;
+  padding: 5px;
 }
 
 .songControls div {
   padding: 5px;
   display: inline-block;
-  border: 2px solid rgb(255,100,90);
-  /* margin: 8px 0 !important; */
-  margin: 8px auto;
+  border: 2px solid rgb(220,120,110);
+  /* margin: 8px auto; */
 }
 .songControls div a {
-  /* display: inline-block; */
-  color: rgb(255,100,90);
+  color: rgb(220,120,110);
 }
 
 a {

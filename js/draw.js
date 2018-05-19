@@ -1,6 +1,9 @@
 let circles = [];
 let lastLevel = 0;
 let mainMax = 200;
+let currentAccent = 3; // 1 = red, 2 = green, 3 = blue;
+
+
 function draw() {
   level = amplitude.getLevel();
   mainSize = map(level, 0, 1, 0, mainMax);
@@ -15,16 +18,30 @@ function draw() {
   });
 
   if (level - lastLevel > 2.5*lastLevel) {
-    circles.push({x: random(0,width),y: random(0,height),fill: `rgb(100,${random(100,200)},200)`});
     mainMax > width * 1.1 ? mainMax = mainMax : mainMax = mainMax * 1.1;
-
+    if (circles.length < 100) {
+      circles.push({x: random(0,width), y: random(0,height), fill: colourSelector(currentAccent)});
+    }
   }
   lastLevel = level;
+}; //end of draw function
 
-  // if (circles.length === 10) {
-  //   // circles = circles.slice(circles.length - 10, 10)
-  //   mainMax = mainMax * 0.9;
-  // }
-};
-
-// {x: width/2, y: height/2, fill: `rgb(100,${random(100,200)},200)`}
+const colourSelector = function(num) {
+  let rand;
+  let returnVal = ``;
+  switch(num) {
+    case 1: // r randomised, g emphasis
+      rand = random(160,240);
+      returnVal = `rgb(${rand}, 160, 90)`;
+      break;
+    case 2: // g randomised, b emphasis
+      rand = random(100,200);
+      returnVal = `rgb(100, ${rand}, 200)`;
+      break;
+    case 3: // b randomised, r emphasis
+      rand = random(100,200);
+      returnVal = `rgb(220, 100, ${rand})`;
+      break;
+  }
+  return returnVal
+}
