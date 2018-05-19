@@ -1,44 +1,55 @@
+// VARIABLES //////
+let song, binCount, bins, smoothing, fft, amplitude;
+let canvas, spectrum, width, height, wSeg, hSeg, level, size;
 
-$(document).ready(function() {
-  audio.setup();
-  audio.setupSong();
-  waveformAnalysis.setup();
-  bargraphAnalysis.setup();
-  waveform.setup();
-  bargraph.setup();
-  deepsounds.setup();
-  // diagonals.setup();
+function preload() {
+  // add load method with the path to your sound
+  song = loadSound('./audio/sweet-adeline.mp3');
+};
 
-  // CALL CHOSEN GET DATA FUNCTION ////
-  waveformAnalysis.getByteWaveformData();
-  bargraphAnalysis.getByteFreqData();
-
-  // CALL CORRESONDING UPDATE DATA FUNCTION
-  waveformAnalysis.updateByteWaveform();
-  bargraphAnalysis.updateFreqBarGraph();
-
-  // CALL CORRESPONDING VISUAL
-  waveform.drawByteWaveform();
-  bargraph.drawByteBargraph();
-  deepsounds.draw();
-  // diagonals.drawLines();
-  // diagonals.fill();
-
+function setup() {
+  // CHANGE USER CONTROLS TEXT //
+  $('#play-pause').text('Play');
+  $('#stop').text('Stop');
   // USER CONTROLS FOR PLAYING AUDIO /////////////////////
   $('#play-pause').on('click', function() {
     let text = $('#play-pause').text();
     if (text === 'Play') {
-      audio.song.play();
+      song.play();
 
       $('#play-pause').text('Pause');
     } else {
-      audio.song.pause();
+      song.pause();
       $('#play-pause').text('Play');
     }
   });
   $('#stop').on('click', function() {
-    audio.song.pause();
-    audio.song.currentTime = 0;
+    song.pause();
+    song.currentTime = 0;
     $('#play-pause').text('Play');
   })
+  // CANVAS //
+  canvas = createCanvas(windowWidth, windowHeight); // this sets width & height
+  width = windowWidth;
+  height = windowHeight;
+  canvas.parent('canvas');
+  background(30);
+  // SOUND ANALYSIS: FFT //
+  binCount = 256;
+  bins = new Array(binCount);
+  smoothing = 0.6;
+  fft = new p5.FFT(smoothing, binCount);
+  fft.setInput(song);
+  // SOUND ANALYSIS: AMPLITUDE //
+  amplitude = new p5.Amplitude()
+};
+
+const random = function(min,max) {
+  // getting a random integer:
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+$(document).ready(function() {
+
+
 }); // end of doc ready

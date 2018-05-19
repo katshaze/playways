@@ -4,25 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/master.css">
+  <link rel="stylesheet" href="./css/master.css">
   <title>Playways</title>
   <script src="js/jquery.js"></script>
-  <script src="js/index.js"></script>
-  <script src="js/audio.js"></script>
-  <script src="js/analyse.js"></script>
-  <script src="js/canvas.js"></script>
-  <script src="js/canvas2.js"></script>
+  <script language="javascript" type="text/javascript" src="./p5/p5.min.js"></script>
+  <script language="javascript" type="text/javascript" src="./p5/addons/p5.dom.js"></script>
+  <script language="javascript" type="text/javascript" src="./p5/addons/p5.sound.js"></script>
+  <script language="javascript" type="text/javascript" src="./js/index.js"></script>
+  <!-- <script language="javascript" type="text/javascript" src="./js/triangles.js"></script> -->
+  <script language="javascript" type="text/javascript" src="./js/amplitude.js"></script>
 </head>
 <body>
   <div class="container">
     <div class="buttons">
-      <a id="play-pause">Play</a>
-      <a id="stop">Stop</a>
+      <a id="play-pause">Loading</a>
+      <a id="stop">...</a>
     </div>
-    <canvas id="waveform"></canvas>
-    <canvas id="bargraph"></canvas>
-    <canvas id="deepsounds"></canvas>
-    <!-- <canvas id="diagonals"></canvas> -->
+    <div id="canvas"></div>
   </div>
 </body>
 </html>

@@ -80,9 +80,9 @@ const deepsounds = {
     requestAnimationFrame(this.draw.bind(this));
     let dataArray = bargraphAnalysis.byteFreqDataArray;
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    let tileSize = (dataArray[0] + dataArray[1] + dataArray[2] + dataArray[3]) / 4;
+    let tileSize = (dataArray[0] + dataArray[1] + dataArray[2] + dataArray[3]) / 8;
     this.ctx.beginPath();
-    this.ctx.fillStyle = `rgb(${dataArray[0]}, 50, 50)`;
+    this.ctx.fillStyle = `rgb(${dataArray[0]}, 50, 60)`;
     this.ctx.fillRect(this.canvas.width/2 - tileSize/2, this.canvas.height/2 - tileSize/2, tileSize, tileSize);
   }
 }

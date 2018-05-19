@@ -4,7 +4,6 @@ body {
   font-family: monospace;
   background-color: rgb(30,30,30);
 }
-
 .container {
   margin: 0 auto;
   width: 100vw;
@@ -26,13 +25,7 @@ a {
   margin: 10px;
 }
 
-#waveform, #bargraph, #deepsounds {
-  margin: 0 auto;
-  display: block;
-  margin-bottom: 20px;
-}
-
-#diagonals {
+#canvas {
   position: absolute;
   top: 10vh;
   left: 0;
