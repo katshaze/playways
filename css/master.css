@@ -10,23 +10,58 @@ body {
   height: 100vh;
 }
 
-.buttons {
-  line-height: 10vh;
-  margin: 0 auto;
+.songControls, .modeControls {
   text-align: center;
+  display: block;
+}
+.songControls {
+  width: 140px;
+  margin: 8px;
+}
+
+.modeControls div {
+  margin: 8px;
+  padding: 5px;
+}
+
+.modeControls div {
+  border: 2px solid rgb(255,200,200);
+  width: 130px;
+}
+
+.songControls div {
+  padding: 5px;
+  display: inline-block;
+  border: 2px solid rgb(255,100,90);
+  /* margin: 8px 0 !important; */
+  margin: 8px auto;
+}
+.songControls div a {
+  /* display: inline-block; */
+  color: rgb(255,100,90);
 }
 
 a {
+  background-color: inherit;
   text-align: center;
   color: rgb(255,200,200);
-  border: 2px solid rgb(255,200,200);
-  padding: 10px;
+  padding: 5px;
   cursor: pointer;
-  margin: 10px;
+  /* margin: 10px; */
 }
 
 #canvas {
   position: absolute;
-  top: 10vh;
+  top: 0;
   left: 0;
+  z-index: -1;
+}
+
+.invisible {
+  display: none;
+}
+
+.currentMode {
+  background-color: rgb(255,200,200);
+  color: rgb(30,30,30);
 }

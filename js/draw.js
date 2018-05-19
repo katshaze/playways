@@ -16,7 +16,7 @@ function draw() {
 
   if (level - lastLevel > 2.5*lastLevel) {
     circles.push({x: random(0,width),y: random(0,height),fill: `rgb(100,${random(100,200)},200)`});
-    mainMax > width ? mainMax = mainMax : mainMax = mainMax * 1.1;
+    mainMax > width * 1.1 ? mainMax = mainMax : mainMax = mainMax * 1.1;
 
   }
   lastLevel = level;
