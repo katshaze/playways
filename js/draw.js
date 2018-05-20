@@ -1,8 +1,9 @@
 let circles = [];
 let lastLevel = 0;
 let mainMax = 200;
-let currentAccent = 3; // 1 = red, 2 = green, 3 = blue;
-
+let currentAccent = 3;
+let threshold = 2.5;
+let minorMax;
 
 function draw() {
   level = amplitude.getLevel();
@@ -11,37 +12,58 @@ function draw() {
   fill('rgb(255,200,200)');
   ellipse(width/2, height/2, mainSize, mainSize);
 
-  size2 = map(level, 0,1,0,width/3);
+  minorSize = map(level, 0,1,0,getMax());
   circles.forEach((circle) => {
     fill(circle.fill);
-    ellipse(circle.x, circle.y, size2, size2);
+    ellipse(circle.x, circle.y, minorSize, minorSize);
   });
 
-  if (level - lastLevel > 2.5*lastLevel) {
+  if (level - lastLevel > threshold * lastLevel) {
+    console.log('triggered. threshold:', threshold);
     mainMax > width * 1.1 ? mainMax = mainMax : mainMax = mainMax * 1.1;
-    if (circles.length < 100) {
+    if (circles.length < width/8) {
       circles.push({x: random(0,width), y: random(0,height), fill: colourSelector(currentAccent)});
     }
   }
   lastLevel = level;
+
+  // lower circle triggering level if song isn't creating many circles:
+  if (currentSource != mic) {
+    if (currentSource.currentTime() > 12 && circles.length < 4) {
+      threshold = 2;
+    };
+    if (currentSource.currentTime() > 18 && circles.length < 4) {
+      threshold = 1.5;
+    };
+    if (currentSource.currentTime() > 25 && circles.length < 4) {
+      threshold = 1.25;
+    };
+  };
+
 }; //end of draw function
 
 const colourSelector = function(num) {
   let rand;
   let returnVal = ``;
   switch(num) {
-    case 1: // r randomised, g emphasis
-      rand = random(160,240);
-      returnVal = `rgb(${rand}, 160, 90)`;
+    case 1: // r randomised, r emphasis
+      rand = random(150,250);
+      returnVal = `rgb(${rand}, 50, 50)`;
       break;
-    case 2: // g randomised, b emphasis
+    case 2: // g randomised, b/g emphasis
       rand = random(100,200);
       returnVal = `rgb(100, ${rand}, 200)`;
       break;
-    case 3: // b randomised, r emphasis
-      rand = random(100,200);
-      returnVal = `rgb(220, 100, ${rand})`;
+    case 3: // b randomised, pink-orange emphasis
+      rand = random(80,180);
+      returnVal = `rgb(250, 140, ${rand})`;
       break;
   }
   return returnVal
+};
+
+const getMax = function() {
+  let max = width/4;
+  max > 200 ? max = 200 : max = max;
+  return max;
 }

@@ -5,31 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./css/master.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   <title>Playways</title>
   <script src="js/jquery.js"></script>
   <script language="javascript" type="text/javascript" src="./p5/p5.min.js"></script>
   <script language="javascript" type="text/javascript" src="./p5/addons/p5.dom.js"></script>
   <script language="javascript" type="text/javascript" src="./p5/addons/p5.sound.js"></script>
   <script language="javascript" type="text/javascript" src="./js/index.js"></script>
-  <!-- <script language="javascript" type="text/javascript" src="./js/triangles.js"></script> -->
   <script language="javascript" type="text/javascript" src="./js/input.js"></script>
   <script language="javascript" type="text/javascript" src="./js/draw.js"></script>
+  <script language="javascript" type="text/javascript" src="./js/refresh.js"></script>
 </head>
 <body>
   <div class="container">
-    <div class="modeControls">
-      <div><a id="mic">Mic/your music</a></div>
-      <div><a id="ratatat">Ratatat</a></div>
-      <div><a id="xo">Elliot Smith</a></div>
-    </div>
-    <div class="songControls">
-      <div><a id="play-pause">Loading</a></div>
-      <div><a id="stop">...</a></div>
-    </div>
-    <div class="refresh">
-      <div><a id="refresh">Refresh canvas</a></div>
-    </div>
+    <header>
+      <div class="heading">
+        <h1>Playways</h1>
+      </div>
+    </header>
+    <div id="loading"><a id="play-pause">Loading...</a></div>
     <div id="canvas"></div>
+    <footer>
+      <div class="modeControls">
+        <div id="mic-div"><a id="mic">Mic/your music</a></div>
+        <div id="ratatat-div"><a id="ratatat">Ratatat</a></div>
+        <div id="xo-div"><a id="xo">Elliot Smith</a></div>
+      </div>
+      <div class="songControls">
+        <div id="icons">
+          <i id="play" class="fas fa-play"></i>
+          <i id="pause" class="fas fa-pause"></i>
+          <i id="stop" class="fas fa-stop"></i>
+        </div>
+      </div>
+      <div class="otherControls">
+        <div><a id="refresh">Refresh canvas</a></div>
+        <div><a id="refresh">Info</a></div>
+        <div><a id="refresh">Github</a></div>
+      </div>
+    </footer>
   </div>
 </body>
 </html>

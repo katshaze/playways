@@ -3,59 +3,90 @@ body {
   padding: 0;
   font-family: monospace;
   background-color: rgb(30,30,30);
+  color: rgb(255,200,200);
+  width: 100vw;
+  height: 100vh;
 }
 .container {
   margin: 0 auto;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  position: relative;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.songControls, .modeControls, .refresh {
+header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  z-index: 1;
+}
+
+.heading {
+  margin: 8px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  z-index: 1;
+}
+
+.songControls, .modeControls, .otherControls {
   text-align: center;
   display: block;
   margin: 8px;
 }
 .songControls {
   width: 140px;
-  /* margin: 8px; */
 }
 
-.modeControls div {
+.modeControls div, .otherControls div {
+  border: 2px solid rgb(255,200,200);
+  max-width: 130px;
+  padding: 5px;
   margin-bottom: 8px;
 }
 
-.modeControls div, .refresh div {
-  border: 2px solid rgb(255,200,200);
-  width: 130px;
-  padding: 5px;
-}
-
 .songControls div {
-  padding: 5px;
   display: inline-block;
-  border: 2px solid rgb(220,120,110);
-  /* margin: 8px auto; */
-}
-.songControls div a {
-  color: rgb(220,120,110);
+  margin-bottom: 8px;
 }
 
-a {
+a, .fas {
   background-color: inherit;
   text-align: center;
   color: rgb(255,200,200);
   padding: 5px;
   cursor: pointer;
-  /* margin: 10px; */
+}
+
+.fas {
+  font-size: 32px;
+  color: inherit;
+}
+
+#loading {
+  font-size: 28px;
+
 }
 
 #canvas {
-  position: absolute;
+  /* position: absolute;
   top: 0;
-  left: 0;
+  left: 0; */
   z-index: -1;
 }
 
@@ -63,7 +94,76 @@ a {
   display: none;
 }
 
-.currentMode {
+.currentMode-bg {
   background-color: rgb(255,200,200);
+}
+
+.currentMode-font {
   color: rgb(30,30,30);
 }
+
+h1 {
+  text-align: center;
+  font-size: 36px;
+  margin: 0;
+  color: #fee;
+  padding: 12px 16px;
+  border: 4px solid #eef;
+  /* animation: flicker 6s infinite alternate; */
+  text-shadow: -10px -30px 100px, 0 0 1px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 2px 5px 2px rgb(10,10,10);
+  box-shadow: 0 0 1em #37f, 0 0 0.5em #37f, 0 0 0.1em #37f, inset 0 0 1em #37f, inset 0 0 0.5em #37f, inset 0 0 0.1em #37f;
+}
+
+/* Animate neon flicker */
+@keyframes blink {
+  78% {
+    color: ;
+    text-shadow: #ff4444;
+  }
+  79%{
+     color: #333;
+  }
+  80% {
+
+    text-shadow: none;
+  }
+  81% {
+    color: #fee;
+    text-shadow: #ff4444;
+  }
+  82% {
+    color: #333;
+    text-shadow: none;
+  }
+  83% {
+    color: #fee;
+    text-shadow: #ff4444;
+  }
+  92% {
+    color: #333;
+    text-shadow: none;
+  }
+  92.5% {
+    color: #fee;
+    text-shadow: #ff4444;
+  }
+}
+
+/* Animate neon flicker */
+@keyframes flicker {
+
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+
+      text-shadow: -10px -30px 100px, 0 0 1px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 2px 5px 2px rgb(10,10,10);
+
+      box-shadow: 0 0 1em #08f, 0 0 0.5em #08f, 0 0 0.1em #08f, inset 0 0 1em #08f, inset 0 0 0.5em #08f, inset 0 0 0.1em #08f;
+    }
+
+    20%, 24%, 55% {
+      text-shadow: none;
+      box-shadow: none;
+    }
+}
+
+/* RESPONSIVENESS */
+@media (m)

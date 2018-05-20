@@ -22,8 +22,8 @@ function setup() {
   currentSource.start();
 
   // CHANGE USER CONTROLS TEXT //
-  $('#play-pause').text('Play');
-  $('#stop').text('Stop');
+  $('#loading').addClass('invisible');
+  $('#icons').removeClass('invisible');
 
   // CANVAS //
   canvas = createCanvas(windowWidth, windowHeight); // this sets width & height
@@ -46,16 +46,7 @@ function setup() {
 
   // USER CONTROLS FOR CLEARING CANVAS //
   $('#refresh').on('click', function() {
-    clear();
-    circles = [];
-    mainMax = 200;
-    if (currentAccent === 1) {
-      currentAccent = 2;
-    } else if (currentAccent === 2) {
-      currentAccent = 3;
-    } else {
-      currentAccent = 1;
-    }
+    refreshCanvas();
   });
 
   // USER CONTROLS FOR MODE //
@@ -70,19 +61,19 @@ function setup() {
   });
 
   // USER CONTROLS FOR PLAYING AUDIO /////////////////////
-  $('#play-pause').on('click', function() {
-    let text = $('#play-pause').text();
-    if (text === 'Play') {
+  $('#play').on('click', function() {
+    if (currentSource.isPlaying() === false) {
       currentSource.play();
-      $('#play-pause').text('Pause');
-    } else {
-      currentSource.pause();
-      $('#play-pause').text('Play');
     }
   });
+  $('#pause').on('click', function() {
+    if (currentSource.isPlaying()) {
+      currentSource.pause();
+    }
+  })
   $('#stop').on('click', function() {
     currentSource.stop();
-    $('#play-pause').text('Play');
+    refreshCanvas();
   });
 };
 
