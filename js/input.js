@@ -1,14 +1,15 @@
 // inputMode index:
-// 0 = mic, 1 = song
-let inputMode;
+// 0 = mic, 1 = elliot smith, 2 = ratatat;
 
 function toggleInput(mode) {
+
   inputMode = mode;
+  currentSource.stop();
+  $('.currentMode-bg').removeClass('currentMode-bg');
+  $('.currentMode-font').removeClass('currentMode-font');
+
   switch (inputMode) {
     case 0: // mic mode
-      currentSource.stop();
-      $('.currentMode-bg').removeClass('currentMode-bg');
-      $('.currentMode-font').removeClass('currentMode-font');
       currentSource = mic;
       currentAlbum = null;
       currentSource.start();
@@ -16,12 +17,9 @@ function toggleInput(mode) {
       $('.songControls').addClass('invisible');
       $('#mic-div').addClass('currentMode-bg');
       $('#mic').addClass('currentMode-font');
-
       break;
+
     case 1: // elliot smith mode
-      currentSource.stop();
-      $('.currentMode-bg').removeClass('currentMode-bg');
-      $('.currentMode-font').removeClass('currentMode-font');
       $('.songControls').removeClass('invisible');
       currentSource = xo[0];
       currentAlbum = 'xo';
@@ -36,16 +34,12 @@ function toggleInput(mode) {
       break;
 
     case 2: // ratatat mode
-      currentSource.stop();
-      $('.currentMode-bg').removeClass('currentMode-bg');
-      $('.currentMode-font').removeClass('currentMode-font');
       $('.songControls').removeClass('invisible');
       currentSource = ratatat[0];
       currentAlbum = 'ratatat';
       for (let i = 0; i < ratatat.length; i++) {
         amplitude.setInput(ratatat[i]);
       }
-
       $('#ratatat-div').addClass('currentMode-bg');
       $('#ratatat').addClass('currentMode-font');
 
@@ -57,7 +51,6 @@ function toggleInput(mode) {
 };
 
 const getNextTrack = function(array) {
-  console.log(array);
   for (let i = 0; i < array.length; i++) {
     if (array[i] === currentSource) {
       if (i === array.length - 1) {

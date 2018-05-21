@@ -6,5 +6,4 @@ const setNames = function(album, songList) {
   for (let i = 0; i < album.length; i++) {
     album[i].file = songList[i];
   }
-  console.log(album);
 }

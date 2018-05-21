@@ -1,26 +1,22 @@
-// GLOBAL VARIABLES //////
-// inputs //
-let mic, xo, ratatat;
-let currentSource = '';
-let currentAlbum = null;
-let lastPressed = '';
+// ================ //
+// GLOBAL VARIABLES
+// ================ //
+// re inputs //
+let mic, xo, ratatat, currentSource, currentAlbum, lastPressed, inputMode;
 let switching = false;
 // re amplitude //
-let amplitude, smoothing
-// re freq fft //
-let binCount, bins, fft;
-// re sketch
-let canvas, spectrum, width, height, wSeg, hSeg, level, size;
+let amplitude;
+
 
 
 function preload() {
-  // add load method with the path to your sound
+  // setup() will not run until these are loaded
   xo = [loadSound('./audio/xo/sweet-adeline.mp3'), loadSound('./audio/xo/Tomorrow Tomorrow.mp3')];
   ratatat = [ loadSound('./audio/ratatat/el-pico.mp3'), loadSound('./audio/ratatat/crips.mp3')];
 };
 
 function setup() {
-
+  // add song names to album arrays //
   setNames(xo,xoNames);
   setNames(ratatat,ratatatNames);
 
@@ -31,20 +27,14 @@ function setup() {
 
   // CHANGE USER CONTROLS TEXT //
   $('#loading').addClass('invisible');
-  $('#icons').removeClass('invisible');
 
   // CANVAS //
-  canvas = createCanvas(windowWidth, windowHeight); // this sets width & height
+  canvas = createCanvas(windowWidth, windowHeight);
   width = windowWidth;
   height = windowHeight;
   canvas.parent('canvas');
   background(30);
-  // SOUND ANALYSIS: FFT //
-  binCount = 256;
-  bins = new Array(binCount);
-  smoothing = 0.6;
-  fft = new p5.FFT(smoothing, binCount);
-  fft.setInput(currentSource);
+
   // SOUND ANALYSIS: AMPLITUDE //
   amplitude = new p5.Amplitude()
 
@@ -73,9 +63,9 @@ function setup() {
     refreshCanvas();
   });
 
-  // =============================== //
-  // USER CONTROLS FOR PLAYING AUDIO //
-  // =============================== //
+  // ==================== //
+  // USER CONTROLS FOR AUDIO
+  // ==================== //
   $('#play').on('click', function() {
     lastPressed = 'play';
     if (currentSource.isPlaying() === false) {
@@ -98,25 +88,17 @@ function setup() {
 
 
 
-
-const random = function(min,max) {
-  // getting a random integer:
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
-
-
 // ======================== //
-// GET RID OF IF NOT NEEDED //
+// EXTRA SONGS  //
 // ======================== //
 //
 // , loadSound('./audio/xo/Baby Britain.mp3'), loadSound('./audio/xo/Pitseleh.mp3'), loadSound('./audio/xo/Independence Day.mp3'), loadSound('./audio/xo/Bled White.mp3'), loadSound('./audio/xo/waltz.mp3')
 
 //  loadSound('./audio/ratatat/desert-eagle.mp3'), loadSound('./audio/ratatat/breaking-away.mp3', loadSound('./audio/ratatat/cherry.mp3'),
 
-// =========================== //
-// PLAY MODE - NOT SURE IF NEEDED //
-// =========================== //
+// ====================== //
+// PLAY MODE //
+// ====================== //
 // for (let i = 0; i < ratatat.length; i++) {
 //   ratatat[i].playMode('restart');
 // };
