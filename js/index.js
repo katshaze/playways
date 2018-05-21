@@ -14,8 +14,8 @@ let canvas, spectrum, width, height, wSeg, hSeg, level, size;
 
 function preload() {
   // add load method with the path to your sound
-  xo = [loadSound('./audio/xo/sweet-adeline.mp3'), loadSound('./audio/xo/Tomorrow Tomorrow.mp3'), loadSound('./audio/xo/Baby Britain.mp3'), loadSound('./audio/xo/Pitseleh.mp3'), loadSound('./audio/xo/Independence Day.mp3'), loadSound('./audio/xo/Bled White.mp3'), loadSound('./audio/xo/waltz.mp3')];
-  ratatat = [ loadSound('./audio/ratatat/el-pico.mp3'), loadSound('./audio/ratatat/crips.mp3'), loadSound('./audio/ratatat/desert-eagle.mp3'), loadSound('./audio/ratatat/breaking-away.mp3'), loadSound('./audio/ratatat/cherry.mp3')];
+  xo = [loadSound('./audio/xo/sweet-adeline.mp3'), loadSound('./audio/xo/Tomorrow Tomorrow.mp3')];
+  ratatat = [ loadSound('./audio/ratatat/el-pico.mp3'), loadSound('./audio/ratatat/crips.mp3')];
 };
 
 function setup() {
@@ -100,7 +100,10 @@ const random = function(min,max) {
 // ======================== //
 // GET RID OF IF NOT NEEDED //
 // ======================== //
+//
+// , loadSound('./audio/xo/Baby Britain.mp3'), loadSound('./audio/xo/Pitseleh.mp3'), loadSound('./audio/xo/Independence Day.mp3'), loadSound('./audio/xo/Bled White.mp3'), loadSound('./audio/xo/waltz.mp3')
 
+//  loadSound('./audio/ratatat/desert-eagle.mp3'), loadSound('./audio/ratatat/breaking-away.mp3', loadSound('./audio/ratatat/cherry.mp3'),
 
 // =========================== //
 // PLAY MODE - NOT SURE IF NEEDED //
