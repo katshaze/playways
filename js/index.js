@@ -1,7 +1,9 @@
 // GLOBAL VARIABLES //////
 // inputs //
-let mic, song, xo, ratatat;
-let currentSource = 'song';
+let mic, xo, ratatat;
+let currentSource = '';
+let currentAlbum = null;
+let lastPressed = '';
 // re amplitude //
 let amplitude, smoothing
 // re freq fft //
@@ -9,13 +11,19 @@ let binCount, bins, fft;
 // re sketch
 let canvas, spectrum, width, height, wSeg, hSeg, level, size;
 
+
 function preload() {
   // add load method with the path to your sound
-  xo = loadSound('./audio/sweet-adeline.mp3');
-  ratatat = loadSound('./audio/el-pico.mp3');
+  xo = [loadSound('./audio/xo/sweet-adeline.mp3'), loadSound('./audio/xo/Tomorrow Tomorrow.mp3'), loadSound('./audio/xo/Baby Britain.mp3'), loadSound('./audio/xo/Pitseleh.mp3'), loadSound('./audio/xo/Independence Day.mp3'), loadSound('./audio/xo/Bled White.mp3'), loadSound('./audio/xo/waltz.mp3')];
+  ratatat = [ loadSound('./audio/ratatat/el-pico.mp3'), loadSound('./audio/ratatat/crips.mp3'), loadSound('./audio/ratatat/desert-eagle.mp3'), loadSound('./audio/ratatat/breaking-away.mp3'), loadSound('./audio/ratatat/cherry.mp3')];
 };
 
 function setup() {
+
+  // xo[0].file = 'Sweet Adeline';
+  setNames(xo,xoNames);
+  setNames(ratatat,ratatatNames);
+
   // MIC SETUP //
   mic = new p5.AudioIn();
   currentSource = mic;
@@ -42,7 +50,6 @@ function setup() {
 
   // SET SOURCE //
   toggleInput(1); // start with elliot smith
-  // toggleInput(0); // start with mic
 
   // USER CONTROLS FOR CLEARING CANVAS //
   $('#refresh').on('click', function() {
@@ -60,24 +67,47 @@ function setup() {
     toggleInput(2)
   });
 
-  // USER CONTROLS FOR PLAYING AUDIO /////////////////////
+  // =============================== //
+  // USER CONTROLS FOR PLAYING AUDIO //
+  // =============================== //
   $('#play').on('click', function() {
+    lastPressed = 'play';
     if (currentSource.isPlaying() === false) {
       currentSource.play();
     }
   });
   $('#pause').on('click', function() {
+    lastPressed = 'pause';
     if (currentSource.isPlaying()) {
       currentSource.pause();
     }
   })
   $('#stop').on('click', function() {
+    lastPressed = 'stop';
     currentSource.stop();
     refreshCanvas();
   });
-};
+
+}; //end of setup function
 
 const random = function(min,max) {
   // getting a random integer:
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
+
+
+// ======================== //
+// GET RID OF IF NOT NEEDED //
+// ======================== //
+
+
+// =========================== //
+// PLAY MODE - NOT SURE IF NEEDED //
+// =========================== //
+// for (let i = 0; i < ratatat.length; i++) {
+//   ratatat[i].playMode('restart');
+// };
+// for (let i = 0; i < xo.length; i++) {
+//   xo[i].playMode('restart');
+// };

@@ -29,16 +29,37 @@ function draw() {
 
   // lower circle triggering level if song isn't creating many circles:
   if (currentSource != mic) {
-    if (currentSource.currentTime() > 12 && circles.length < 4) {
-      threshold = 2;
+    for (let i = 0; i < ratatat.length; i++) {
+      if (ratatat[i].isPlaying()) {
+        if (ratatat[i].currentTime() > 12 && circles.length < 4) {
+          threshold = 2;
+        };
+        if (ratatat[i].currentTime() > 18 && circles.length < 4) {
+          threshold = 1.5;
+        };
+        if (ratatat[i].currentTime() > 25 && circles.length < 4) {
+          threshold = 1.25;
+        };
+      };
     };
-    if (currentSource.currentTime() > 18 && circles.length < 4) {
-      threshold = 1.5;
-    };
-    if (currentSource.currentTime() > 25 && circles.length < 4) {
-      threshold = 1.25;
-    };
-  };
+    for (let i = 0; i < xo.length; i++) {
+      if (xo[i].currentTime() > 12 && circles.length < 4) {
+        threshold = 2;
+      };
+      if (xo[i].currentTime() > 18 && circles.length < 4) {
+        threshold = 1.5;
+      };
+      if (xo[i].currentTime() > 25 && circles.length < 4) {
+        threshold = 1.25;
+      };
+    }
+  }; // end of trigger lowering function
+
+  if (currentAlbum != null) {
+    if (currentSource.isPlaying()) {
+      $('#now-playing').text(`Now playing: ${currentSource.file}`)
+    }
+  }
 
 }; //end of draw function
 
