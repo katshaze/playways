@@ -4,6 +4,7 @@ let mic, xo, ratatat;
 let currentSource = '';
 let currentAlbum = null;
 let lastPressed = '';
+let switching = false;
 // re amplitude //
 let amplitude, smoothing
 // re freq fft //
@@ -14,14 +15,14 @@ let canvas, spectrum, width, height, wSeg, hSeg, level, size;
 
 function preload() {
   // add load method with the path to your sound
-  xo = [loadSound('./audio/xo/sweet-adeline.mp3'), loadSound('./audio/xo/Tomorrow Tomorrow.mp3')];
+  xo = [loadSound('./audio/my_first_piano.mp3'),loadSound('./audio/xo/sweet-adeline.mp3'), loadSound('./audio/xo/Tomorrow Tomorrow.mp3')];
   ratatat = [ loadSound('./audio/ratatat/el-pico.mp3'), loadSound('./audio/ratatat/crips.mp3')];
 };
 
 function setup() {
 
   setNames(xo,xoNames);
-  // setNames(ratatat,ratatatNames);
+  setNames(ratatat,ratatatNames);
 
   // MIC SETUP //
   mic = new p5.AudioIn();
@@ -48,7 +49,8 @@ function setup() {
   amplitude = new p5.Amplitude()
 
   // SET SOURCE //
-  toggleInput(1); // start with elliot smith
+  currentSource = xo[0];
+  // toggleInput(1); // start with elliot smith
 
   // USER CONTROLS FOR CLEARING CANVAS //
   $('#refresh').on('click', function() {
@@ -57,13 +59,19 @@ function setup() {
 
   // USER CONTROLS FOR MODE //
   $('#mic').on('click', function() {
+    switching = true;
     toggleInput(0);
+    refreshCanvas();
   });
   $('#xo').on('click', function() {
-    toggleInput(1)
+    switching = true;
+    toggleInput(1);
+    refreshCanvas();
   });
   $('#ratatat').on('click', function() {
-    toggleInput(2)
+    switching = true;
+    toggleInput(2);
+    refreshCanvas();
   });
 
   // =============================== //

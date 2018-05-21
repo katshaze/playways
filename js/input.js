@@ -16,6 +16,7 @@ function toggleInput(mode) {
       $('.songControls').addClass('invisible');
       $('#mic-div').addClass('currentMode-bg');
       $('#mic').addClass('currentMode-font');
+
       break;
     case 1: // elliot smith mode
       currentSource.stop();
@@ -31,6 +32,7 @@ function toggleInput(mode) {
       $('#xo').addClass('currentMode-font');
       // switch to next track in XO array
       getNextTrack(xo);
+      switching = false;
       break;
 
     case 2: // ratatat mode
@@ -49,18 +51,20 @@ function toggleInput(mode) {
 
       // switch to next track in ratatat array
       getNextTrack(ratatat);
+      switching = false;
       break;
   }
 };
 
 const getNextTrack = function(array) {
+  console.log(array);
   for (let i = 0; i < array.length; i++) {
     if (array[i] === currentSource) {
       if (i === array.length - 1) {
         return;
       } else {
         currentSource.onended(function() {
-          if (currentSource.isPaused() === false && lastPressed != 'stop') {
+          if (currentSource.isPaused() === false && lastPressed != 'stop' && switching === false) {
             currentSource = array[i + 1];
             currentSource.play();
             getNextTrack(array);
