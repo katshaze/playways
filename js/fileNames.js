@@ -1,4 +1,4 @@
-const xoNames = ['piano','Sweet Adeline', 'Tomorrow Tomorrow', 'Baby Britain', 'Pitseleh', 'Independence Day', 'Bled White', 'Waltz #1'];
+const xoNames = ['Sweet Adeline', 'Tomorrow Tomorrow', 'Baby Britain', 'Pitseleh', 'Independence Day', 'Bled White', 'Waltz #1'];
 
 const ratatatNames = ['El Pico', 'Crips', 'Desert Eagle', 'Breaking Away', 'Cherry']
 

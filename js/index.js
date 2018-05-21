@@ -15,7 +15,7 @@ let canvas, spectrum, width, height, wSeg, hSeg, level, size;
 
 function preload() {
   // add load method with the path to your sound
-  xo = [loadSound('./audio/my_first_piano.mp3'),loadSound('./audio/xo/sweet-adeline.mp3'), loadSound('./audio/xo/Tomorrow Tomorrow.mp3')];
+  xo = [loadSound('./audio/xo/sweet-adeline.mp3'), loadSound('./audio/xo/Tomorrow Tomorrow.mp3')];
   ratatat = [ loadSound('./audio/ratatat/el-pico.mp3'), loadSound('./audio/ratatat/crips.mp3')];
 };
 
@@ -49,8 +49,7 @@ function setup() {
   amplitude = new p5.Amplitude()
 
   // SET SOURCE //
-  currentSource = xo[0];
-  // toggleInput(1); // start with elliot smith
+  toggleInput(1); // start with elliot smith
 
   // USER CONTROLS FOR CLEARING CANVAS //
   $('#refresh').on('click', function() {
