@@ -24,22 +24,25 @@
         <h1>Playways</h1>
       </div>
     </header>
-    <div id="loading"><a id="play-pause">Loading...</a></div>
+    <div id="loading"><a id="load">Loading...</a></div>
     <div id="canvas"></div>
+    <div class="songControls">
+      <div id="icons">
+        <i id="play" class="fas fa-play"></i>
+        <i id="pause" class="fas fa-pause"></i>
+        <i id="stop" class="fas fa-stop"></i>
+      </div>
+      <div>
+        <p><span id="now-playing"></span><br><span id="song-title"></span></p>
+      </div>
+    </div>
     <footer>
       <div class="modeControls">
         <div id="mic-div"><a id="mic">Mic/your music</a></div>
         <div id="ratatat-div"><a id="ratatat">Ratatat</a></div>
         <div id="xo-div"><a id="xo">Elliot Smith</a></div>
       </div>
-      <div class="songControls">
-        <div id="icons">
-          <i id="play" class="fas fa-play"></i>
-          <i id="pause" class="fas fa-pause"></i>
-          <i id="stop" class="fas fa-stop"></i>
-        </div>
-        <div id="now-playing"></div>
-      </div>
+
       <div class="otherControls">
         <div><a id="refresh">Refresh canvas</a></div>
         <div><a id="refresh">Info</a></div>

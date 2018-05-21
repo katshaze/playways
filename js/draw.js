@@ -57,7 +57,8 @@ function draw() {
 
   if (currentAlbum != null) {
     if (currentSource.isPlaying()) {
-      $('#now-playing').text(`Now playing: ${currentSource.file}`)
+      $('#now-playing').text(`Now playing:`);
+      $('#song-title').text(`${currentSource.file}`);
     }
   }
 

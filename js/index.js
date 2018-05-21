@@ -20,9 +20,8 @@ function preload() {
 
 function setup() {
 
-  // xo[0].file = 'Sweet Adeline';
   setNames(xo,xoNames);
-  setNames(ratatat,ratatatNames);
+  // setNames(ratatat,ratatatNames);
 
   // MIC SETUP //
   mic = new p5.AudioIn();
@@ -89,6 +88,9 @@ function setup() {
   });
 
 }; //end of setup function
+
+
+
 
 const random = function(min,max) {
   // getting a random integer:
