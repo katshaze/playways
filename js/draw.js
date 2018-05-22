@@ -4,7 +4,7 @@ let canvas, width, height, level, mainSize, minorSize, minorMax, smlAxis;
 let circles = [];
 let lastLevel = 0;
 let mainMax = 200;
-let currentAccent = 3;
+let currentAccent = 2; //index: 1=red,2=blue/green,3=pink/orange
 let trigger = 2.5;
 
 function draw() {
