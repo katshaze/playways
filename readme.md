@@ -34,5 +34,7 @@ Sound is continually being measured for amplitude and this data is used to rende
 ## Acknowledgements
 A big thanks to Joel Turnbull, John Coote and James Theo at GA. And to Daisy Smith for the help and inspiration.
 
+Also the p5 docs, and these demos: https://therewasaguy.github.io/p5-music-viz/
+
 ## License
 Licensed under MIT.
