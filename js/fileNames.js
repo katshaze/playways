@@ -1,6 +1,6 @@
-const xoNames = ['Sweet Adeline', 'Tomorrow Tomorrow', 'Baby Britain', 'Pitseleh', 'Independence Day', 'Bled White', 'Waltz #1'];
+const xoNames = ['Bled White','Sweet Adeline', 'Tomorrow Tomorrow', 'Baby Britain', 'Pitseleh','Independence Day',  'Waltz #1'];
 
-const ratatatNames = ['El Pico', 'Crips', 'Desert Eagle', 'Breaking Away', 'Cherry']
+const ratatatNames = ['Cherry', 'Desert Eagle', 'Crips', 'Breaking Away', 'El Pico']
 
 const setNames = function(album, songList) {
   for (let i = 0; i < album.length; i++) {

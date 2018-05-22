@@ -1,3 +1,11 @@
+// ============
+// Window Resize
+// ============
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  background(30);
+}
+
 const refreshCanvas = function() {
   clear();
   circles = [];
@@ -21,7 +29,7 @@ const colourSelector = function(num) {
   let returnVal = ``;
   switch(num) {
     case 1: // r randomised, r emphasis
-      rand = random(150,250);
+      rand = random(130,230);
       returnVal = `rgb(${rand}, 50, 50)`;
       break;
     case 2: // g randomised, b/g emphasis
@@ -45,10 +53,10 @@ const getMax = function() {
 const checkTrigger = function(album) {
   for (let i = 0; i < album.length; i++) {
     if (album[i].isPlaying()) {
-      if (album[i].currentTime() > 12 && circles.length < 4) {
+      if (album[i].currentTime() > 15 && circles.length < 4) {
         trigger = 2;
       };
-      if (album[i].currentTime() > 18 && circles.length < 4) {
+      if (album[i].currentTime() > 20 && circles.length < 4) {
         trigger = 1.5;
       };
       if (album[i].currentTime() > 25 && circles.length < 4) {

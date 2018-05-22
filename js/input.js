@@ -22,7 +22,7 @@ function toggleInput(mode) {
     case 1: // elliot smith mode
       $('.songControls').removeClass('invisible');
       currentSource = xo[0];
-      currentAlbum = 'xo';
+      currentAlbum = xo;
       for (let i = 0; i < xo.length; i++) {
         amplitude.setInput(xo[i]);
       }
@@ -36,7 +36,7 @@ function toggleInput(mode) {
     case 2: // ratatat mode
       $('.songControls').removeClass('invisible');
       currentSource = ratatat[0];
-      currentAlbum = 'ratatat';
+      currentAlbum = ratatat;
       for (let i = 0; i < ratatat.length; i++) {
         amplitude.setInput(ratatat[i]);
       }
@@ -51,6 +51,7 @@ function toggleInput(mode) {
 };
 
 const getNextTrack = function(array) {
+  console.log(`getNextTrack triggered for ${currentSource}. array passed:`, array);
   for (let i = 0; i < array.length; i++) {
     if (array[i] === currentSource) {
       if (i === array.length - 1) {
@@ -67,3 +68,23 @@ const getNextTrack = function(array) {
     }
   }
 };
+
+const getPreviousTrack = function(array) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === currentSource) {
+      currentSource.stop();
+      if (i === 0) {
+        currentSource.play();
+      } else {
+        currentSource = array[i - 1];
+        currentSource.play();
+      }
+    }
+  }
+  switching = false;
+};
+
+const checkTrack = function(array) {
+  let index = array.indexOf(currentSource);
+  return index;
+}

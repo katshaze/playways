@@ -1,6 +1,6 @@
 // GLOBAL VARIABLES RE SKETCH
 // ==================
-let canvas, width, height, level, mainSize, minorSize, minorMax;
+let canvas, width, height, level, mainSize, minorSize, minorMax, smlAxis;
 let circles = [];
 let lastLevel = 0;
 let mainMax = 200;
@@ -25,8 +25,8 @@ function draw() {
   // adding a new minor circle
   if (level - lastLevel > trigger * lastLevel) {
     console.log('trigger triggered:', trigger);
-    mainMax > width * 1.1 ? mainMax = mainMax : mainMax = mainMax * 1.1;
-    if (circles.length < width/8) {
+    mainMax > smlAxis * 1.1 ? mainMax = mainMax : mainMax = mainMax * 1.1;
+    if (circles.length < smlAxis/8) {
       circles.push({x: random(0,width), y: random(0,height), fill: colourSelector(currentAccent)});
     }
   }
@@ -40,10 +40,8 @@ function draw() {
 
   // show the currentSource playing
   if (currentAlbum != null) {
-    if (currentSource.isPlaying()) {
-      $('#now-playing').text(`Now playing:`);
-      $('#song-title').text(`${currentSource.file}`);
-    };
-  };
+    $('#now-playing').text(`Current track:`);
+    $('#song-title').text(`${currentSource.file}`);
+  }
 
 }; //end of draw function

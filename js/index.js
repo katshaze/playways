@@ -1,22 +1,22 @@
-// ================ //
+// ================
 // GLOBAL VARIABLES
-// ================ //
-// re inputs //
+// ================
+// re inputs
 let mic, xo, ratatat, currentSource, currentAlbum, lastPressed, inputMode;
 let switching = false;
-// re amplitude //
+// re amplitude
 let amplitude;
 
 
 
 function preload() {
   // setup() will not run until these are loaded
-  xo = [loadSound('./audio/xo/sweet-adeline.mp3'), loadSound('./audio/xo/Tomorrow Tomorrow.mp3')];
-  ratatat = [ loadSound('./audio/ratatat/el-pico.mp3'), loadSound('./audio/ratatat/crips.mp3')];
+  xo = [loadSound('./audio/xo/Bled White.mp3'), loadSound('./audio/xo/sweet-adeline.mp3'), loadSound('./audio/xo/Tomorrow Tomorrow.mp3')];
+  ratatat = [loadSound('./audio/ratatat/cherry.mp3'), loadSound('./audio/ratatat/desert-eagle.mp3'), loadSound('./audio/ratatat/crips.mp3')];
 };
 
 function setup() {
-  // add song names to album arrays //
+  // add song names to album arrays
   setNames(xo,xoNames);
   setNames(ratatat,ratatatNames);
 
@@ -32,6 +32,7 @@ function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
   width = windowWidth;
   height = windowHeight;
+  width < height ? smlAxis = width : smlAxis = height;
   canvas.parent('canvas');
   background(30);
 
@@ -39,7 +40,7 @@ function setup() {
   amplitude = new p5.Amplitude()
 
   // SET SOURCE //
-  toggleInput(1); // start with elliot smith
+  toggleInput(2); // start with ratatat on refresh
 
   // USER CONTROLS FOR CLEARING CANVAS //
   $('#refresh').on('click', function() {
@@ -63,9 +64,9 @@ function setup() {
     refreshCanvas();
   });
 
-  // ==================== //
+  // ====================
   // USER CONTROLS FOR AUDIO
-  // ==================== //
+  // ====================
   $('#play').on('click', function() {
     lastPressed = 'play';
     if (currentSource.isPlaying() === false) {
@@ -83,22 +84,34 @@ function setup() {
     currentSource.stop();
     refreshCanvas();
   });
+  $('#next').on('click', function() {
+    let current = checkTrack(currentAlbum);
+    if (current < currentAlbum.length - 1) {
+      currentSource.stop();
+      refreshCanvas();
+    }
+  });
+  $('#previous').on('click', function() {
+    switching = true;
+    getPreviousTrack(currentAlbum);
+    refreshCanvas();
+  });
 
 }; //end of setup function
 
 
 
-// ======================== //
-// EXTRA SONGS  //
-// ======================== //
-//
-// , loadSound('./audio/xo/Baby Britain.mp3'), loadSound('./audio/xo/Pitseleh.mp3'), loadSound('./audio/xo/Independence Day.mp3'), loadSound('./audio/xo/Bled White.mp3'), loadSound('./audio/xo/waltz.mp3')
+// ================
+// FULL SONGS
+// ================
 
-//  loadSound('./audio/ratatat/desert-eagle.mp3'), loadSound('./audio/ratatat/breaking-away.mp3', loadSound('./audio/ratatat/cherry.mp3'),
+// xo = [loadSound('./audio/xo/Bled White.mp3'), loadSound('./audio/xo/sweet-adeline.mp3'), loadSound('./audio/xo/Tomorrow Tomorrow.mp3'), loadSound('./audio/xo/Baby Britain.mp3'), loadSound('./audio/xo/Pitseleh.mp3'), loadSound('./audio/xo/Independence Day.mp3'), loadSound('./audio/xo/waltz.mp3')];
 
-// ====================== //
-// PLAY MODE //
-// ====================== //
+// ratatat = [loadSound('./audio/ratatat/cherry.mp3'), loadSound('./audio/ratatat/desert-eagle.mp3'), loadSound('./audio/ratatat/crips.mp3'), loadSound('./audio/ratatat/breaking-away.mp3'), loadSound('./audio/ratatat/el-pico.mp3')];
+
+// ===================
+// PLAY MODE
+// ===================
 // for (let i = 0; i < ratatat.length; i++) {
 //   ratatat[i].playMode('restart');
 // };

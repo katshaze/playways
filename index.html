@@ -7,10 +7,10 @@
   <link rel="stylesheet" href="./css/master.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   <title>Playways</title>
-  <script src="js/jquery.js"></script>
-  <script language="javascript" type="text/javascript" src="./p5/p5.min.js"></script>
-  <script language="javascript" type="text/javascript" src="./p5/addons/p5.dom.js"></script>
-  <script language="javascript" type="text/javascript" src="./p5/addons/p5.sound.js"></script>
+  <script src="./js/jquery.js"></script>
+  <script language="javascript" type="text/javascript" src="./js/p5.min.js"></script>
+  <script language="javascript" type="text/javascript" src="./js/p5.dom.js"></script>
+  <script language="javascript" type="text/javascript" src="./js/p5.sound.js"></script>
   <script language="javascript" type="text/javascript" src="./js/index.js"></script>
   <script language="javascript" type="text/javascript" src="./js/input.js"></script>
   <script language="javascript" type="text/javascript" src="./js/draw.js"></script>
@@ -28,9 +28,11 @@
     <div id="canvas"></div>
     <div class="songControls">
       <div id="icons">
+        <i id="previous" class="fas fa-step-backward"></i>
         <i id="play" class="fas fa-play"></i>
         <i id="pause" class="fas fa-pause"></i>
         <i id="stop" class="fas fa-stop"></i>
+        <i id="next" class="fas fa-step-forward"></i>
       </div>
       <div>
         <p><span id="now-playing"></span><br><span id="song-title"></span></p>
@@ -45,8 +47,8 @@
 
       <div class="otherControls">
         <div><a id="refresh">Refresh canvas</a></div>
-        <div><a id="refresh">Info</a></div>
-        <div><a id="refresh">Github</a></div>
+        <div><a id="info">Info</a></div>
+        <div><a href="https://github.com/katshaze/playways" target="_blank">Github</a></div>
       </div>
     </footer>
   </div>
