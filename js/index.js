@@ -30,11 +30,12 @@ function setup() {
 
   // CANVAS //
   canvas = createCanvas(windowWidth, windowHeight);
+  canvas.parent('myCanvas');
+  background(30);
   width = windowWidth;
   height = windowHeight;
   width < height ? smlAxis = width : smlAxis = height;
-  canvas.parent('myCanvas');
-  background(30);
+
 
   // SOUND ANALYSIS: AMPLITUDE //
   amplitude = new p5.Amplitude();
