@@ -8,6 +8,7 @@ let switching = false;
 let amplitude;
 
 function preload() {
+
   // setup() will not run until these are loaded
   xo = [loadSound('./audio/xo/Bled White.mp3'), loadSound('./audio/xo/sweet-adeline.mp3'), loadSound('./audio/xo/Tomorrow Tomorrow.mp3')];
   ratatat = [loadSound('./audio/ratatat/desert-eagle.mp3'), loadSound('./audio/ratatat/crips.mp3'), loadSound('./audio/ratatat/cherry.mp3')];
@@ -59,17 +60,20 @@ function setup() {
     switching = true;
     toggleInput(1);
     refreshCanvas();
+    showPlayButton();
   });
   $('#ratatat').on('click', function() {
     switching = true;
     toggleInput(2);
     refreshCanvas();
+    showPlayButton();
   });
 
   // ====================
   // USER CONTROLS FOR AUDIO
   // ====================
   $('#play-pause').on('click', function() {
+    getAudioContext().resume()
     if (currentSource.isPlaying()) {
       lastPressed = 'pause';
       currentSource.pause();
