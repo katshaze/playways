@@ -4,7 +4,7 @@
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   background(30);
-}
+};
 
 const refreshCanvas = function() {
   clear();
@@ -41,7 +41,7 @@ const colourSelector = function(num) {
       returnVal = `rgb(250, 140, ${rand})`;
       break;
   }
-  return returnVal
+  return returnVal;
 };
 
 const getMax = function() {
@@ -55,23 +55,23 @@ const checkTrigger = function(album) {
     if (album[i].isPlaying()) {
       if (album[i].currentTime() > 15 && circles.length < 4) {
         trigger = 2;
-      };
+      }
       if (album[i].currentTime() > 23 && circles.length < 5) {
         trigger = 1.5;
-      };
+      }
       if (album[i].currentTime() > 30 && circles.length < 5) {
         trigger = 1.25;
-      };
-    };
-  };
+      }
+    }
+  }
 };
 
 const showPlayButton = function() {
   $('#play-pause').removeClass('fa-pause');
   $('#play-pause').addClass('fa-play');
-}
+};
 
 const showPauseButton = function() {
   $('#play-pause').removeClass('fa-play');
   $('#play-pause').addClass('fa-pause');
-}
+};

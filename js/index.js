@@ -37,7 +37,7 @@ function setup() {
   background(30);
 
   // SOUND ANALYSIS: AMPLITUDE //
-  amplitude = new p5.Amplitude()
+  amplitude = new p5.Amplitude();
 
   // SET SOURCE //
   toggleInput(2); // start with ratatat on refresh
@@ -74,7 +74,7 @@ function setup() {
   // USER CONTROLS FOR AUDIO
   // ====================
   $('#play-pause').on('click', function() {
-    getAudioContext().resume()
+    // getAudioContext().resume();
     if (currentSource.isPlaying()) {
       lastPressed = 'pause';
       currentSource.pause();

@@ -2,7 +2,6 @@
 // 0 = mic, 1 = elliot smith, 2 = ratatat;
 
 function toggleInput(mode) {
-
   inputMode = mode;
   currentSource.stop();
   $('.currentMode-bg').removeClass('currentMode-bg');
@@ -87,4 +86,4 @@ const getPreviousTrack = function(array) {
 const checkTrack = function(array) {
   let index = array.indexOf(currentSource);
   return index;
-}
+};
