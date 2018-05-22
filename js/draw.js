@@ -1,3 +1,4 @@
+// ==================
 // GLOBAL VARIABLES RE SKETCH
 // ==================
 let canvas, width, height, level, mainSize, minorSize, minorMax, smlAxis;

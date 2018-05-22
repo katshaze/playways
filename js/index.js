@@ -7,12 +7,13 @@ let switching = false;
 // re amplitude
 let amplitude;
 
-function preload() {
 
+function preload() {
   // setup() will not run until these are loaded
-  xo = [loadSound('./audio/xo/Bled White.mp3'), loadSound('./audio/xo/sweet-adeline.mp3'), loadSound('./audio/xo/Tomorrow Tomorrow.mp3')];
+  xo = [loadSound('./audio/xo/Baby Britain.mp3'), loadSound('./audio/xo/sweet-adeline.mp3'), loadSound('./audio/xo/Tomorrow Tomorrow.mp3')];
   ratatat = [loadSound('./audio/ratatat/desert-eagle.mp3'), loadSound('./audio/ratatat/crips.mp3'), loadSound('./audio/ratatat/cherry.mp3')];
 };
+
 
 function setup() {
   // add song names to album arrays
@@ -102,7 +103,6 @@ function setup() {
   });
 
 }; //end of setup function
-
 
 
 // ================
