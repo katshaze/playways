@@ -65,34 +65,44 @@ function setup() {
   // ====================
   // USER CONTROLS FOR AUDIO
   // ====================
-  $('#play').on('click', function() {
-    lastPressed = 'play';
-    if (currentSource.isPlaying() === false) {
-      currentSource.play();
-    }
-  });
-  $('#pause').on('click', function() {
-    lastPressed = 'pause';
+  $('#play-pause').on('click', function() {
     if (currentSource.isPlaying()) {
+      lastPressed = 'pause';
       currentSource.pause();
+      showPlayButton();
+    } else {
+      lastPressed = 'play';
+      currentSource.play();
+      showPauseButton();
     }
-  })
-  $('#stop').on('click', function() {
-    lastPressed = 'stop';
-    currentSource.stop();
-    refreshCanvas();
   });
+  // $('#play').on('click', function() {
+  //   lastPressed = 'play';
+  //   if (currentSource.isPlaying() === false) {
+  //     currentSource.play();
+  //   }
+  // });
+  // $('#pause').on('click', function() {
+  //   lastPressed = 'pause';
+  //   if (currentSource.isPlaying()) {
+  //     currentSource.pause();
+  //   }
+  // });
   $('#next').on('click', function() {
+    lastPressed = 'next';
     let current = checkTrack(currentAlbum);
     if (current < currentAlbum.length - 1) {
       currentSource.stop();
       refreshCanvas();
     }
+    showPauseButton();
   });
   $('#previous').on('click', function() {
+    lastPressed = 'previous';
     switching = true;
     getPreviousTrack(currentAlbum);
     refreshCanvas();
+    showPauseButton();
   });
 
 }; //end of setup function

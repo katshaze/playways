@@ -48,7 +48,7 @@ const getMax = function() {
   let max = width/4;
   max > 200 ? max = 200 : max = max;
   return max;
-}
+};
 
 const checkTrigger = function(album) {
   for (let i = 0; i < album.length; i++) {
@@ -64,4 +64,14 @@ const checkTrigger = function(album) {
       };
     };
   };
+};
+
+const showPlayButton = function() {
+  $('#play-pause').removeClass('fa-pause');
+  $('#play-pause').addClass('fa-play');
+}
+
+const showPauseButton = function() {
+  $('#play-pause').removeClass('fa-play');
+  $('#play-pause').addClass('fa-pause');
 }

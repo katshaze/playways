@@ -58,7 +58,7 @@ const getNextTrack = function(array) {
         return;
       } else {
         currentSource.onended(function() {
-          if (currentSource.isPaused() === false && lastPressed != 'stop' && switching === false) {
+          if (lastPressed != 'pause' && lastPressed != 'stop' && switching === false) {
             currentSource = array[i + 1];
             currentSource.play();
             getNextTrack(array);
