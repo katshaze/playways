@@ -7,7 +7,7 @@ function windowResized() {
 };
 
 const refreshCanvas = function() {
-  clear();
+  canvas.clear();
   circles = [];
   mainMax = 200;
   if (currentAccent === 1) {
