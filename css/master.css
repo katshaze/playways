@@ -42,6 +42,7 @@ footer {
   justify-content: space-between;
   align-items: baseline;
   z-index: 1;
+  font-size: 14px;
 }
 
 .modeControls, .otherControls {
@@ -57,6 +58,7 @@ footer {
   position: fixed;
   bottom: 30px;
   z-index: 2;
+  font-size: 14px;
 }
 
 .songControls p {
@@ -131,9 +133,79 @@ h1 {
   box-shadow: 0 0 1em #37f, 0 0 0.5em #37f, 0 0 0.1em #37f, inset 0 0 1em #37f, inset 0 0 0.5em #37f, inset 0 0 0.1em #37f;
 }
 
+/* INFO MODAL */
+#modal-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.1);
+  display: none;
+  z-index: 4;
+}
+
+#info-modal {
+  color: rgb(30,30,30);
+  background: #eee;
+  position: absolute;
+  width: 400px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  height: 350px;
+  border-radius: 5px;
+  padding: 25px 30px 30px 30px;
+  font-family: 'Raleway', sans-serif;
+}
+
+#info-modal p {
+  margin: 8px auto;
+}
+
+#info-heading {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0;
+  margin-bottom: 8px;
+  color: #ff4444;
+}
+
+.contact {
+  color: rgb(30,30,30);
+  border-bottom: 2px dotted #ff4444;
+  padding: 0;
+}
+
 /* RESPONSIVENESS */
 @media (max-width: 456px) {
   .songControls {
     bottom: 116px;
+  }
+}
+
+@media (max-width: 505px) {
+  #info-modal {
+    width: 270px;
+    height: 425px;
+    font-size: 15px;
+    padding: 20px;
+  }
+  #info-heading {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 700px) {
+  h1 {
+    font-size: 50px;
+  }
+  .modeControls, .otherControls {
+    margin: 15px;
+  }
+  .modeControls div, .otherControls div {
+    max-width: 150px;
+    font-size: 16px;
   }
 }

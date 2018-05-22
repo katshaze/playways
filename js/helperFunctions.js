@@ -56,10 +56,10 @@ const checkTrigger = function(album) {
       if (album[i].currentTime() > 15 && circles.length < 4) {
         trigger = 2;
       };
-      if (album[i].currentTime() > 20 && circles.length < 4) {
+      if (album[i].currentTime() > 23 && circles.length < 5) {
         trigger = 1.5;
       };
-      if (album[i].currentTime() > 25 && circles.length < 4) {
+      if (album[i].currentTime() > 30 && circles.length < 5) {
         trigger = 1.25;
       };
     };

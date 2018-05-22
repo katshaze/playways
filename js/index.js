@@ -40,12 +40,16 @@ function setup() {
   // SET SOURCE //
   toggleInput(2); // start with ratatat on refresh
 
-  // USER CONTROLS FOR CLEARING CANVAS //
+  // USER CONTROLS //
   $('#refresh').on('click', function() {
     refreshCanvas();
   });
-
-  // USER CONTROLS FOR MODE //
+  $("#info").click(function() {
+    $('#modal-overlay').fadeIn(200);
+  });
+  $('#modal-overlay').click(function() {
+     $('#modal-overlay').fadeOut(200);
+  });
   $('#mic').on('click', function() {
     switching = true;
     toggleInput(0);
@@ -76,18 +80,6 @@ function setup() {
       showPauseButton();
     }
   });
-  // $('#play').on('click', function() {
-  //   lastPressed = 'play';
-  //   if (currentSource.isPlaying() === false) {
-  //     currentSource.play();
-  //   }
-  // });
-  // $('#pause').on('click', function() {
-  //   lastPressed = 'pause';
-  //   if (currentSource.isPlaying()) {
-  //     currentSource.pause();
-  //   }
-  // });
   $('#next').on('click', function() {
     lastPressed = 'next';
     let current = checkTrack(currentAlbum);
