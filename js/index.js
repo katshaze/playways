@@ -33,7 +33,7 @@ function setup() {
   width = windowWidth;
   height = windowHeight;
   width < height ? smlAxis = width : smlAxis = height;
-  canvas.parent('canvas');
+  canvas.parent('myCanvas');
   background(30);
 
   // SOUND ANALYSIS: AMPLITUDE //
