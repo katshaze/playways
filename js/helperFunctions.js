@@ -1,10 +1,10 @@
 // ============
 // Window Resize
 // ============
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  background(30);
-};
+// function windowResized() {
+//   resizeCanvas(windowWidth, windowHeight);
+//   background(30);
+// };
 
 const refreshCanvas = function() {
   canvas.clear();
