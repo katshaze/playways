@@ -7,7 +7,8 @@
 // };
 
 const refreshCanvas = function() {
-  canvas.clear();
+  clear();
+  background(30);
   circles = [];
   mainMax = 200;
   if (currentAccent === 1) {
