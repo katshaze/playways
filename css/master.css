@@ -200,6 +200,9 @@ h1 {
 }
 
 @media (min-width: 700px) {
+  .heading {
+    margin: 15px;
+  }
   h1 {
     font-size: 50px;
   }
