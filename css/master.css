@@ -213,4 +213,10 @@ h1 {
     max-width: 150px;
     font-size: 16px;
   }
+  .songControls div {
+    font-size: 16px;
+  }
+  .fas {
+    font-size: 32px;
+  }
 }
