@@ -2,6 +2,8 @@
 
 [Playways](https://katshaze.github.io/playways) is a music visualiser and generative art app built using the p5 and p5.sound libraries. Every visualisation created is different.
 
+**Note:** Currently works best in Chrome on desktop. If it isn't loading, try clicking anywhere then reloading the page (due to browser restrictions related to autoloading audio without an initial user interaction on the page).
+
 ![Playways screenshot](images/Ratatat_Desert-Eagle.png)
 
 ## How it works
