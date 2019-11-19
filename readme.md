@@ -21,13 +21,14 @@ Sound is continually being measured for amplitude and this data is used to rende
 * Javascript (inc. ES6)
 * jQuery
 * HTML5 / CSS3
-* Parcel bundler
 
 ## Lowlands
 * The app works best on Chrome on desktop at this stage due to issues loading sound in other browsers.
 * Intermittent bugs related to autoplay
+* The code isn't bundled due to issues getting Parcel bundler to work with p5 and the p5 sound library.
 
 ## Todo list
+- [ ] Bundle the code
 - [ ] User to be able to drag and drop own mp3 to play
 - [ ] Connect via API to Spotify, Soundcloud or similar platform to allow user to login and play their music
 - [ ] Slider to show progress of songs
