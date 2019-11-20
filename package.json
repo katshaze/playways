@@ -5,17 +5,14 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {},
-  "scripts": {
-    "build": "parcel build ./src/index.html --public-url ./",
-    "dev": "parcel ./index.html --public-url ./"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/katshaze/playways.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/katshaze/playways/issues"
   },
